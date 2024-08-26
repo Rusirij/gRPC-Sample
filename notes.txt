@@ -1,0 +1,17 @@
+npm init -y
+
+
+
+npm install @grpc/grpc-js @grpc/proto-loader
+
+
+
+npm install @grpc/grpc-js
+
+apt install -y protobuf-compiler
+
+sudo apt install npm
+sudo npm install -g grpc-tools
+protoc -I=. --js_out=import_style=commonjs,binary:. --grpc_out=. --plugin=protoc-gen-grpc=$(which grpc_tools_node_protoc_plugin) service.proto
+node server.js
+node client.js
